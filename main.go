@@ -2,38 +2,35 @@ package main
 
 import (
 	"fmt"
-	"strconv"
 )
 
-func langSelect(int locale) string{
-	switch locale {
-	case 1:
-		return = "Hello"
-	case 2:
-		return = "Hola"
-	case 3:
-		return = "Guten Tag"
-	case 4:
-		return = "Bonjour"
+func langSelect(userInput string) string{
+	switch userInput {
+	case "1":
+		return "Hello"
+	case "2":
+		return "Hola"
+	case "3":
+		return "Guten Tag"
+	case "4":
+		return "Bonjour"
 	default:
-		return = "Yo"
+		return "Yo"
 	}
 }
 
-func scan(in io.Reader)
-
 func main() {
 	var greeting, userInput string
-	var selector int
 	var languages = [4]string{"English", "Espanol", "Deutsche", "Francais"}
+	var itera = [4]string{"1", "2", "3", "4"}
 
-	for i:=0;i<4;{
-		fmt.Printf("[" + i +"] " + languages[i] + " \n")
+	for i:=0;i<4;i++{
+		
+		fmt.Printf("[" + itera[i] +"] " + languages[i] + " \n")
 	}
 
 	fmt.Scanf("%s", &userInput)
-	selector := strconv.Atoi(userInput)
 
-	greeting = langSelect(selector)
+	greeting = langSelect(userInput)
 	fmt.Printf(greeting + ", Go!\n")
 }
