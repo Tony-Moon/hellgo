@@ -25,7 +25,7 @@ func main() {
 		"Press    [1] for English", 
 		"Presione [2] para Espanol", 
 		"Presse   [3] für Deutsche",
-		"Presse   [4] Pour Francais" }
+		"Presse   [4] pour Francais" }
 
 	for i:=0;i<4;i++{
 		fmt.Printf(languages[i] + " \n")
