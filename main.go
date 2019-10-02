@@ -2,37 +2,35 @@ package main
 
 import (
 	"fmt"
+	"os"
 )
 
-func langSelect(userInput string) string{
-	switch userInput {
-	case "1":
-		return "Hello"
-	case "2":
-		return "Hola"
-	case "3":
-		return "Guten Tag"
-	case "4":
-		return "Bonjour"
-	default:
-		return "Yo"
+func translate(inp string) string {
+	var translations = make(map[string]string)
+	translations["en"] = "Hello"
+	translations["es"] = "Hola"
+	translations["de"] = "Guten tag"
+	translations["fr"] = "Bonjour"
+	return translations[inp]
+}
+
+func argswitch(inp []string) string {
+	var locale string
+	if len(inp) == 1 {
+		fmt.Println("Enter a language code:")
+		fmt.Scanf("%s", &locale)
+	} else {
+		locale = inp[1]
 	}
+	return locale
 }
 
 func main() {
-	var greeting, userInput string
-	var languages = [4]string{
-		"Press    [1] for English", 
-		"Presione [2] para Espanol", 
-		"Presse   [3] für Deutsche",
-		"Presse   [4] pour Francais" }
-
-	for i:=0;i<4;i++{
-		fmt.Printf(languages[i] + " \n")
+	locale := argswitch(os.Args)
+	output := translate(locale)
+	if output == "" {
+		output = "Yo"
 	}
 
-	fmt.Scanf("%s", &userInput)
-
-	greeting = langSelect(userInput)
-	fmt.Printf(greeting + ", Go!\n")
+	fmt.Printf(output + ", Go!\n")
 }
