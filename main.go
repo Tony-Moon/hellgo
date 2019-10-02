@@ -21,12 +21,14 @@ func langSelect(userInput string) string{
 
 func main() {
 	var greeting, userInput string
-	var languages = [4]string{"English", "Espanol", "Deutsche", "Francais"}
-	var itera = [4]string{"1", "2", "3", "4"}
+	var languages = [4]string{
+		"Press    [1] for English", 
+		"Presione [2] para Espanol", 
+		"Presse   [3] für Deutsche",
+		"Presse   [4] Pour Francais" }
 
 	for i:=0;i<4;i++{
-		
-		fmt.Printf("[" + itera[i] +"] " + languages[i] + " \n")
+		fmt.Printf(languages[i] + " \n")
 	}
 
 	fmt.Scanf("%s", &userInput)
